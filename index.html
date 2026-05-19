@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BigFestas Ilhabela — Espaço para Festas, Decoração e Aluguel de Brinquedos</title>
+  <meta name="description" content="Espaço completo pra sua festa em Ilhabela. Salão, decoração personalizada, mini-kit, pega e monte e brinquedos. Mais de 12 anos de experiência.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #fdf2e6;
+      --coral: #ff6b6b;
+      --coral-dark: #e85757;
+      --green: #10b981;
+      --dark: #1a1a2e;
+      --text: #2d2d3a;
+      --text-light: #6b6b7a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .icon {
+      width: 1.1em; height: 1.1em;
+      display: inline-block; vertical-align: middle;
+      fill: currentColor;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(253, 242, 230, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100; padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .header-content {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo {
+      font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700;
+      color: var(--dark); text-decoration: none;
+    }
+    .logo span { color: var(--coral); }
+    nav ul { display: flex; gap: 1.8rem; list-style: none; }
+    nav a {
+      color: var(--text); text-decoration: none; font-weight: 500;
+      font-size: 0.92rem; transition: color 0.3s;
+    }
+    nav a:hover { color: var(--coral); }
+    .menu-toggle {
+      display: none; background: none; border: none;
+      font-size: 1.5rem; cursor: pointer; color: var(--dark);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 8rem 2rem 5rem;
+      background: linear-gradient(135deg, #fde7d3 0%, #fdf2e6 100%);
+      position: relative; overflow: hidden; text-align: center;
+      min-height: 600px;
+    }
+    .hero-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 5; }
+
+    .badge {
+      display: inline-block; background: var(--dark); color: white;
+      padding: 0.4rem 1rem; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--dark); margin-bottom: 1.5rem;
+    }
+    .hero h1 .highlight { font-style: italic; color: var(--coral); }
+
+    .hero p {
+      font-size: 1.1rem; color: var(--text-light);
+      max-width: 650px; margin: 0 auto 2rem;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: all 0.3s; border: none; cursor: pointer; font-size: 0.95rem;
+    }
+    .btn-primary { background: var(--coral); color: white; }
+    .btn-primary:hover {
+      background: var(--coral-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+    }
+    .btn-secondary { background: white; color: var(--dark); border: 2px solid var(--dark); }
+    .btn-secondary:hover { background: var(--dark); color: white; }
+
+    /* DECORAÇÕES HERO */
+    .hero-decoration {
+      position: absolute; font-size: 3.5rem; z-index: 1;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+      user-select: none; pointer-events: none;
+    }
+    .deco-1 { top: 15%; left: 8%; animation: floatRotate 6s ease-in-out infinite; }
+    .deco-2 { top: 22%; right: 8%; animation: floatRotate 7s ease-in-out infinite reverse; font-size: 4rem; }
+    .deco-3 { bottom: 18%; left: 12%; animation: floatRotate 8s ease-in-out infinite; font-size: 3.8rem; }
+    .deco-4 { bottom: 22%; right: 12%; animation: floatRotate 5s ease-in-out infinite reverse; }
+    .deco-5 { top: 55%; left: 3%; animation: floatRotate 9s ease-in-out infinite; font-size: 2.5rem; opacity: 0.7; }
+    .deco-6 { top: 60%; right: 3%; animation: floatRotate 10s ease-in-out infinite reverse; font-size: 2.5rem; opacity: 0.7; }
+    .deco-7 { top: 10%; left: 50%; animation: floatRotate 11s ease-in-out infinite; font-size: 2rem; opacity: 0.6; }
+
+    @keyframes floatRotate {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-15px) rotate(5deg); }
+      50% { transform: translateY(-25px) rotate(-5deg); }
+      75% { transform: translateY(-10px) rotate(8deg); }
+    }
+
+    /* SOBRE */
+    .sobre { padding: 5rem 2rem; background: var(--cream); }
+    .sobre-content {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .section-tag {
+      color: var(--coral); font-style: italic;
+      font-family: 'Fraunces', serif; font-size: 1rem; margin-bottom: 1rem;
+    }
+    .sobre h2 {
+      font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 1.5rem; color: var(--dark);
+    }
+    .sobre p { color: var(--text-light); margin-bottom: 1rem; }
+    .anos-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--coral); color: white;
+      padding: 0.6rem 1.3rem; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; margin-top: 1rem;
+    }
+    .sobre-image {
+      background: white;
+      border-radius: 20px; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .sobre-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* SEÇÕES CARROSSEL */
+    .section-carousel { padding: 5rem 2rem; text-align: center; }
+    .section-carousel.dark { background: var(--dark); color: white; }
+    .section-carousel.cream { background: var(--cream); }
+    .section-carousel h2 {
+      font-family: 'Fraunces', serif; font-size: 2.5rem; font-weight: 700;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-carousel .subtitle {
+      max-width: 650px; margin: 0 auto 2rem; color: var(--text-light);
+    }
+    .section-carousel.dark .subtitle { color: rgba(255,255,255,0.7); }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem; max-width: 800px; margin: 0 auto 3rem;
+    }
+    .stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1.5rem 1rem; border-radius: 12px;
+    }
+    .stat-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .stat-value {
+      font-family: 'Fraunces', serif; font-size: 2rem;
+      font-weight: 700; color: white;
+    }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+    .brinquedos-categories {
+      max-width: 900px; margin: 0 auto 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    }
+    .categoria-card {
+      background: white; border-radius: 16px; padding: 1.5rem;
+      text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border: 2px solid transparent; transition: all 0.3s;
+    }
+    .categoria-card:hover { border-color: var(--coral); transform: translateY(-3px); }
+    .categoria-card h3 {
+      font-family: 'Fraunces', serif; font-size: 1.3rem;
+      margin-bottom: 0.8rem; color: var(--dark);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .categoria-card ul { list-style: none; padding: 0; }
+    .categoria-card li {
+      padding: 0.4rem 0; color: var(--text-light); font-size: 0.95rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .categoria-card li::before { content: "✓"; color: var(--green); font-weight: bold; }
+
+    /* CARROSSEL */
+    .carousel-wrapper { max-width: 900px; margin: 0 auto; position: relative; }
+    .carousel {
+      position: relative; border-radius: 24px;
+      overflow: hidden; aspect-ratio: 16/10;
+    }
+    .carousel-slides { display: flex; transition: transform 0.5s ease; height: 100%; }
+    .carousel-slide {
+      min-width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .carousel-slide img, .carousel-slide video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .carousel-slide.placeholder { flex-direction: column; gap: 1rem; color: white; }
+    .carousel-placeholder-icon { font-size: 4rem; }
+    .carousel-placeholder-text { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; }
+    .carousel-placeholder-num {
+      background: rgba(0,0,0,0.3); padding: 0.3rem 0.8rem;
+      border-radius: 20px; font-size: 0.85rem;
+    }
+
+    .carousel-espaco { background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); }
+    .carousel-decoracao-espaco { background: linear-gradient(135deg, #f87171 0%, #ff8a8a 100%); }
+    .carousel-decoracao-casas { background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%); }
+    .carousel-pegamonte { background: linear-gradient(135deg, #ef4444 0%, #f87171 100%); }
+    .carousel-minikit { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); }
+    .carousel-brinquedos { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); }
+
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: var(--coral); color: white; border: none;
+      width: 45px; height: 45px; border-radius: 50%;
+      cursor: pointer; font-size: 1.2rem; z-index: 5;
+      transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-btn:hover {
+      background: var(--coral-dark);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-prev { left: -22px; }
+    .carousel-next { right: -22px; }
+
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 0.5rem;
+      margin-top: 1.5rem; flex-wrap: wrap;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); cursor: pointer;
+      transition: all 0.3s; border: none;
+    }
+    .section-carousel.dark .dot { background: rgba(255,255,255,0.3); }
+    .dot.active { background: var(--coral); width: 24px; border-radius: 4px; }
+    .section-carousel-cta { margin-top: 2rem; }
+
+    /* CONTATO */
+    .contato {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--coral) 0%, #ff8a8a 100%);
+      text-align: center; color: white;
+    }
+    .contato-content { max-width: 600px; margin: 0 auto; }
+    .contato .section-tag { color: rgba(255,255,255,0.9); }
+    .contato h2 {
+      font-family: 'Fraunces', serif; font-size: 2.5rem;
+      font-weight: 700; line-height: 1.2; margin-bottom: 1rem;
+    }
+    .contato p { margin-bottom: 2rem; color: rgba(255,255,255,0.9); }
+
+    .btn-whatsapp {
+      background: #25d366; color: white;
+      padding: 1rem 2rem; font-size: 1.05rem;
+    }
+    .btn-whatsapp:hover {
+      background: #1ea952;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); color: white;
+      padding: 4rem 2rem 2rem; text-align: center;
+    }
+    footer .logo {
+      color: white; font-size: 1.8rem;
+      display: inline-block; margin-bottom: 1.5rem;
+    }
+    footer p { color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+
+    .footer-contacts {
+      display: flex; gap: 1.5rem; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 2rem;
+      color: rgba(255,255,255,0.8); font-size: 0.95rem;
+    }
+    .footer-contacts a, .footer-contacts span {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      transition: color 0.3s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .footer-contacts a:hover { color: var(--coral); }
+    .footer-contacts .icon { width: 1.1rem; height: 1.1rem; }
+
+    .footer-nav {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      margin: 2rem 0; padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-nav a {
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      font-size: 0.9rem; transition: color 0.3s;
+    }
+    .footer-nav a:hover { color: var(--coral); }
+
+    .footer-bottom {
+      display: flex; flex-direction: column;
+      gap: 0.5rem; align-items: center;
+    }
+    .copyright { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .cnpj { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    /* WHATSAPP FLUTUANTE */
+    .whatsapp-float {
+      position: fixed; bottom: 25px; right: 25px;
+      background: #25d366; color: white;
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+      z-index: 99; transition: all 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    }
+    .whatsapp-float .icon { width: 32px; height: 32px; }
+
+    /* BADGE NOVIDADE */
+    .badge-novidade {
+      display: inline-block;
+      background: var(--green); color: white;
+      padding: 0.3rem 0.8rem; border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      header { padding: 1rem; }
+      nav ul {
+        display: none; position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--cream); flex-direction: column;
+        padding: 1rem; gap: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+      nav ul.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero { padding: 6rem 1rem 3rem; }
+      .sobre-content { grid-template-columns: 1fr; gap: 2rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .brinquedos-categories { grid-template-columns: 1fr; }
+      .carousel-btn { width: 38px; height: 38px; font-size: 1rem; }
+      .carousel-prev { left: 5px; }
+      .carousel-next { right: 5px; }
+      .section-carousel { padding: 3rem 1rem; }
+      .hero h1, .sobre h2, .section-carousel h2, .contato h2 { font-size: 2rem; }
+      .hero-decoration { font-size: 2.5rem; }
+      .deco-5, .deco-6, .deco-7 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <a href="#" class="logo">Big<span>Festas</span> Ilhabela</a>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#espaco">Espaço</a></li>
+          <li><a href="#decoracao-espaco">Decoração</a></li>
+          <li><a href="#decoracao-casas">Em Casa</a></li>
+          <li><a href="#pega-monte">Pega e Monte</a></li>
+          <li><a href="#mini-kit">Mini-Kit</a></li>
+          <li><a href="#brinquedos">Brinquedos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-decoration deco-1">🎈</span>
+    <span class="hero-decoration deco-2">🎉</span>
+    <span class="hero-decoration deco-3">🎂</span>
+    <span class="hero-decoration deco-4">🎁</span>
+    <span class="hero-decoration deco-5">🎊</span>
+    <span class="hero-decoration deco-6">🎀</span>
+    <span class="hero-decoration deco-7">✨</span>
+
+    <div class="hero-content">
+      <span class="badge">📍 Ilhabela • SP</span>
+      <h1>O espaço <span class="highlight">completo</span><br>pra sua festa em Ilhabela</h1>
+      <p>Salão para até 60 adultos, com 50 cadeiras, 12 mesas, 2 banheiros e decoração personalizada. No espaço a criançada se diverte com pebolim, escorregador, pula-pula, piscina de bolinhas e brinquedo de corredor. Tudo num lugar só — você só traz a alegria.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/5512992263513?text=Olá!%20Gostaria%20de%20consultar%20a%20disponibilidade%20do%20espaço." class="btn btn-primary" target="_blank">Consultar disponibilidade</a>
+        <a href="#espaco" class="btn btn-secondary">Ver o espaço</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-content">
+      <div>
+        <p class="section-tag">— a BigFestas</p>
+        <h2>Festas que viram memória.</h2>
+        <p>A BigFestas Ilhabela é referência em festas na ilha. Trabalhamos com decoração personalizada, aluguel de espaço completo e locação de brinquedos — tudo com a qualidade e o capricho que sua celebração merece.</p>
+        <p>Aniversários infantis, festas de 15 anos, casamentos, chá de bebê, eventos corporativos — montamos do zero ou alugamos pra você montar em casa. Você escolhe como quer celebrar.</p>
+        <div class="anos-badge">
+          ⭐ Mais de 12 anos de experiência
+        </div>
+      </div>
+      <div class="sobre-image">
+        <img src="Logo/logo-01.jpeg" alt="BigFestas Ilhabela" onerror="this.style.display='none'; this.parentElement.innerHTML='🎉'; this.parentElement.style.fontSize='5rem';">
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPAÇO -->
+  <section class="section-carousel dark" id="espaco">
+    <p class="section-tag">— nosso carro-chefe</p>
+    <h2>O espaço completo<br>pra sua festa.</h2>
+    <p class="subtitle">Estrutura pronta pra você comemorar sem dor de cabeça. Chega, faz a festa e vai embora — a gente cuida de todo o resto. Inclui pebolim, escorregador, pula-pula, piscina de bolinhas e brinquedo de corredor pra criançada.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-icon">🪑</div>
+        <div class="stat-value">50</div>
+        <div class="stat-label">cadeiras</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">🍽️</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">mesas amplas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">🚻</div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">banheiros amplos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">🎀</div>
+        <div class="stat-value" style="font-size: 1.2rem; padding-top: 0.5rem;">Decoração</div>
+        <div class="stat-label">personalizada inclusa</div>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-espaco" id="carousel-espaco">
+        <div class="carousel-slides" id="slides-espaco"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('espaco', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('espaco', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-espaco"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20reservar%20o%20espaço%20para%20minha%20festa." class="btn btn-primary" target="_blank">Reservar meu dia →</a>
+    </div>
+  </section>
+
+  <!-- DECORAÇÃO NO ESPAÇO -->
+  <section class="section-carousel cream" id="decoracao-espaco">
+    <p class="section-tag">— ambientes prontos no nosso espaço</p>
+    <h2>Decoração no Espaço.</h2>
+    <p class="subtitle">Cada festa é única. Veja algumas das ambientações que já montamos no nosso espaço — temas, cores e detalhes que transformam o lugar.</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-decoracao-espaco" id="carousel-decoracaoespaco">
+        <div class="carousel-slides" id="slides-decoracaoespaco"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('decoracaoespaco', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('decoracaoespaco', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-decoracaoespaco"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20decorar%20minha%20festa%20no%20espaço%20de%20vocês." class="btn btn-primary" target="_blank">Quero decorar no espaço →</a>
+    </div>
+  </section>
+
+  <!-- DECORAÇÃO NAS CASAS -->
+  <section class="section-carousel cream" id="decoracao-casas">
+    <p class="section-tag">— decoração profissional na sua casa</p>
+    <h2>Decoração em Casa.</h2>
+    <p class="subtitle">Trabalho profissional, feito por nossa equipe direto na sua casa ou local escolhido. Decoração completa, montagem cuidadosa e desmontagem inclusa — você só recebe os convidados e curte.</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-decoracao-casas" id="carousel-decoracaocasas">
+        <div class="carousel-slides" id="slides-decoracaocasas"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('decoracaocasas', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('decoracaocasas', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-decoracaocasas"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20decoração%20profissional%20na%20minha%20casa." class="btn btn-primary" target="_blank">Quero decoração em casa →</a>
+    </div>
+  </section>
+
+  <!-- PEGA E MONTE -->
+  <section class="section-carousel cream" id="pega-monte">
+    <p class="section-tag">— aluguel pra montar em casa</p>
+    <h2>Pega e Monte</h2>
+    <p class="subtitle">Você aluga toda a decoração da festa, leva pra casa e monta do seu jeito. Painéis, balões, mesa decorada, neon e tudo que precisar — economia e liberdade pra fazer em casa.</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-pegamonte" id="carousel-pegamonte">
+        <div class="carousel-slides" id="slides-pegamonte"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('pegamonte', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('pegamonte', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-pegamonte"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20um%20orçamento%20do%20Pega%20e%20Monte." class="btn btn-primary" target="_blank">Pedir orçamento Pega e Monte →</a>
+    </div>
+  </section>
+
+  <!-- MINI-KIT DE MESA -->
+  <section class="section-carousel cream" id="mini-kit">
+    <p class="section-tag">— novidade que tá em alta</p>
+    <h2>Mini-Kit de Mesa <span class="badge-novidade">NOVIDADE</span></h2>
+    <p class="subtitle">Decoração compacta e charmosa pra mesas menores. O queridinho da galera — prático, cheio de personalidade e perfeito pra festas pequenas em casa. Você pega, monta na sua mesa e sua festa fica linda em minutos!</p>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-minikit" id="carousel-minikit">
+        <div class="carousel-slides" id="slides-minikit"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('minikit', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('minikit', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-minikit"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mini-Kit%20de%20Mesa." class="btn btn-primary" target="_blank">Quero o Mini-Kit →</a>
+    </div>
+  </section>
+
+  <!-- BRINQUEDOS -->
+  <section class="section-carousel cream" id="brinquedos">
+    <p class="section-tag">— diversão garantida</p>
+    <h2>Brinquedos</h2>
+    <p class="subtitle">No espaço a criançada já tem diversão garantida com vários brinquedos inclusos. E se você quer ainda mais agito, alugamos brinquedos infláveis pra sua festa em qualquer lugar — entregamos, montamos e buscamos.</p>
+
+    <div class="brinquedos-categories">
+      <div class="categoria-card">
+        <h3>🏠 Inclusos no espaço</h3>
+        <ul>
+          <li>Pebolim</li>
+          <li>Escorregador</li>
+          <li>Pula-pula</li>
+          <li>Piscina de bolinhas</li>
+          <li>Brinquedo de corredor</li>
+        </ul>
+      </div>
+      <div class="categoria-card">
+        <h3>🎈 Aluguel separado</h3>
+        <ul>
+          <li>Tobogã inflável</li>
+          <li>Futebol de sabão</li>
+          <li>Cubo inflável de bolinhas</li>
+          <li>Cachorrinho de bolinhas</li>
+          <li>Cama elástica</li>
+          <li>Outros sob consulta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel carousel-brinquedos" id="carousel-brinquedos">
+        <div class="carousel-slides" id="slides-brinquedos"></div>
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel('brinquedos', -1)">‹</button>
+        <button class="carousel-btn carousel-next" onclick="moveCarousel('brinquedos', 1)">›</button>
+      </div>
+      <div class="carousel-dots" id="dots-brinquedos"></div>
+    </div>
+
+    <div class="section-carousel-cta">
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20alugar%20brinquedos%20para%20minha%20festa." class="btn btn-primary" target="_blank">Pedir orçamento de brinquedos →</a>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contato" id="contato">
+    <div class="contato-content">
+      <p class="section-tag">— vamos conversar?</p>
+      <h2>Conta pra gente como você imagina sua festa.</h2>
+      <p>Resposta rapidinha pelo WhatsApp. Sem compromisso, sem complicação.</p>
+      <a href="https://wa.me/5512992263513?text=Olá!%20Quero%20conversar%20sobre%20minha%20festa." class="btn btn-whatsapp" target="_blank">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 01-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24zM8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28-1.4-.69-1.62-.77c-.22-.08-.38-.12-.54.12-.16.25-.62.78-.76.94-.14.17-.28.19-.52.07-.25-.13-1.06-.39-2.02-1.25-.74-.66-1.25-1.47-1.4-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.13.17-.22.25-.38.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#" class="logo">Big<span style="color: var(--coral);">Festas</span> Ilhabela</a>
+    <p>Espaço para festas, decoração e aluguel de brinquedos em Ilhabela.</p>
+
+    <div class="footer-contacts">
+      <a href="https://wa.me/5512992263513" target="_blank" title="WhatsApp">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 01-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24zM8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28-1.4-.69-1.62-.77c-.22-.08-.38-.12-.54.12-.16.25-.62.78-.76.94-.14.17-.28.19-.52.07-.25-.13-1.06-.39-2.02-1.25-.74-.66-1.25-1.47-1.4-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.13.17-.22.25-.38.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01z"/></svg>
+        (12) 99226-3513
+      </a>
+      <a href="mailto:bigfestasilhabela@gmail.com" title="Email">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        bigfestasilhabela@gmail.com
+      </a>
+      <a href="https://www.instagram.com/bigfestasilhabela/" target="_blank" title="Instagram">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        @bigfestasilhabela
+      </a>
+      <span title="Localização">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        Ilhabela • SP
+      </span>
+    </div>
+
+    <div class="footer-nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#espaco">Espaço</a>
+      <a href="#decoracao-espaco">Decoração</a>
+      <a href="#decoracao-casas">Em Casa</a>
+      <a href="#pega-monte">Pega e Monte</a>
+      <a href="#mini-kit">Mini-Kit</a>
+      <a href="#brinquedos">Brinquedos</a>
+      <a href="#contato">Contato</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 BigFestas Ilhabela. Todos os direitos reservados.</p>
+      <p class="cnpj">CNPJ: 30.965.437/0001-20</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5512992263513?text=Olá!%20Vim%20pelo%20site." class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp">
+    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.32a8.188 8.188 0 01-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24zM8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.86-.87 2.07 0 1.22.89 2.39 1 2.56.14.17 1.76 2.67 4.25 3.73.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28-1.4-.69-1.62-.77c-.22-.08-.38-.12-.54.12-.16.25-.62.78-.76.94-.14.17-.28.19-.52.07-.25-.13-1.06-.39-2.02-1.25-.74-.66-1.25-1.47-1.4-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.13.17-.22.25-.38.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14 0-.3-.01-.47-.01z"/></svg>
+  </a>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.remove('active');
+      });
+    });
+
+    // CONFIG DOS CARROSSEIS — Nomes EXATOS conforme upload do GitHub
+    // Pasta "decoração-espaco" com acento porque o GitHub salva assim
+    // Extensões: brinquedos = .png (exceto tobogan-pula = .jpeg), resto = .jpeg
+    const carouselConfig = {
+      espaco: {
+        folder: 'Decoração Espaco', icon: '🏠', label: 'Tour pelo espaço',
+        files: [
+          { name: 'espaco-video-07.mp4', type: 'video' }
+        ]
+      },
+      decoracaoespaco: {
+        folder: 'Decoração Espaco', icon: '✨', label: 'Decoração do espaço',
+        files: [
+          { name: 'espaco-01.jpeg', type: 'image' },
+          { name: 'espaco-02.jpeg', type: 'image' },
+          { name: 'espaco-03.jpeg', type: 'image' },
+          { name: 'espaco-04.jpeg', type: 'image' },
+          { name: 'espaco-05.jpeg', type: 'image' },
+          { name: 'espaco-06.jpeg', type: 'image' }
+        ]
+      },
+      decoracaocasas: {
+        folder: 'Dedecoracio-Casas', icon: '🏡', label: 'Decoração nas casas',
+        files: [
+          { name: 'casa-01.jpeg', type: 'image' },
+          { name: 'casa-02.jpeg', type: 'image' },
+          { name: 'casa-03.jpeg', type: 'image' },
+          { name: 'casa-04.jpeg', type: 'image' },
+          { name: 'casa-05.jpeg', type: 'image' },
+          { name: 'casa-06.jpeg', type: 'image' },
+          { name: 'casa-07.jpeg', type: 'image' },
+          { name: 'casa-08.jpeg', type: 'image' },
+          { name: 'casa-09.jpeg', type: 'image' },
+          { name: 'casa-10.jpeg', type: 'image' },
+          { name: 'casa-11.jpeg', type: 'image' },
+          { name: 'casa-12.jpeg', type: 'image' },
+          { name: 'casa-13.jpeg', type: 'image' }
+        ]
+      },
+      pegamonte: {
+        folder: 'Pega-e-Monte', icon: '🎀', label: 'Pega e Monte',
+        files: [
+          { name: 'pega-e-monte-01.jpeg', type: 'image' },
+          { name: 'pega-e-monte-02.jpeg', type: 'image' },
+          { name: 'pega-e-monte-03.jpeg', type: 'image' },
+          { name: 'pega-e-monte-04.jpeg', type: 'image' },
+          { name: 'pega-e-monte-05.jpeg', type: 'image' },
+          { name: 'pega-e-monte-06.jpeg', type: 'image' },
+          { name: 'pega-e-monte-07.jpeg', type: 'image' }
+        ]
+      },
+      minikit: {
+        folder: 'mini-kit-mesa', icon: '🌸', label: 'Mini-Kit de Mesa',
+        files: [
+          { name: 'mini-kit-01.jpeg', type: 'image' },
+          { name: 'mini-kit-02.jpeg', type: 'image' },
+          { name: 'mini-kit-03.jpeg', type: 'image' },
+          { name: 'mini-kit-04.jpeg', type: 'image' },
+          { name: 'mini-kit-05.jpeg', type: 'image' },
+          { name: 'mini-kit-06.jpeg', type: 'image' }
+        ]
+      },
+      brinquedos: {
+        folder: 'brinquedos', icon: '🛝', label: 'Brinquedos',
+        files: [
+          { name: 'tobogan-01.png', type: 'image' },
+          { name: 'tobogan-pula-01.jpeg', type: 'image' },
+          { name: 'pula-pula-01.png', type: 'image' },
+          { name: 'cama-elastica-01.png', type: 'image' },
+          { name: 'futebol-sabao-01.png', type: 'image' },
+          { name: 'cubo-inflavel-01.png', type: 'image' },
+          { name: 'cachorrinho-bolinha-01.png', type: 'image' }
+        ]
+      }
+    };
+
+    const carousels = {};
+
+    function buildCarousel(name) {
+      const config = carouselConfig[name];
+      const slidesContainer = document.getElementById('slides-' + name);
+      const dotsContainer = document.getElementById('dots-' + name);
+
+      config.files.forEach((file, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+
+        const numStr = String(index + 1).padStart(2, '0');
+        const placeholderHTML = `
+          <div class="carousel-placeholder-icon">${config.icon}</div>
+          <div class="carousel-placeholder-text">${config.label}</div>
+          <div class="carousel-placeholder-num">FOTO ${numStr}</div>
+        `;
+
+        // encodeURIComponent codifica caracteres especiais (acentos, espaços)
+        const filePath = encodeURIComponent(config.folder) + '/' + encodeURIComponent(file.name);
+
+        if (file.type === 'video') {
+          const video = document.createElement('video');
+          video.src = filePath;
+          video.controls = true;
+          video.muted = true;
+          video.autoplay = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          video.onerror = function() {
+            slide.classList.add('placeholder');
+            slide.innerHTML = placeholderHTML;
+          };
+          slide.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = filePath;
+          img.alt = config.label;
+          img.loading = 'lazy';
+          img.onerror = function() {
+            slide.classList.add('placeholder');
+            slide.innerHTML = placeholderHTML;
+          };
+          slide.appendChild(img);
+        }
+
+        slidesContainer.appendChild(slide);
+
+        const dot = document.createElement('button');
+        dot.className = 'dot' + (index === 0 ? ' active' : '');
+        dot.onclick = () => goToSlide(name, index);
+        dotsContainer.appendChild(dot);
+      });
+
+      carousels[name] = { current: 0, total: config.files.length };
+    }
+
+    function moveCarousel(name, direction) {
+      const c = carousels[name];
+      pauseAllVideos(name);
+      c.current = (c.current + direction + c.total) % c.total;
+      updateCarousel(name);
+    }
+
+    function goToSlide(name, index) {
+      pauseAllVideos(name);
+      carousels[name].current = index;
+      updateCarousel(name);
+    }
+
+    function pauseAllVideos(name) {
+      const slides = document.getElementById('slides-' + name);
+      slides.querySelectorAll('video').forEach(v => v.pause());
+    }
+
+    function updateCarousel(name) {
+      const slides = document.getElementById('slides-' + name);
+      slides.style.transform = 'translateX(-' + (carousels[name].current * 100) + '%)';
+
+      const dots = document.getElementById('dots-' + name).children;
+      Array.from(dots).forEach((dot, i) => {
+        dot.classList.toggle('active', i === carousels[name].current);
+      });
+    }
+
+    Object.keys(carouselConfig).forEach(name => buildCarousel(name));
+
+    setInterval(() => {
+      Object.keys(carousels).forEach(name => {
+        const slides = document.getElementById('slides-' + name);
+        const currentSlide = slides.children[carousels[name].current];
+        const videoInSlide = currentSlide.querySelector('video');
+        if (!videoInSlide || videoInSlide.paused) {
+          moveCarousel(name, 1);
+        }
+      });
+    }, 5000);
+  </script>
+
+</body>
+</html>
